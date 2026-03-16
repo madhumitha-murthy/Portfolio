@@ -1,0 +1,1054 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Madhumitha Murthy — ML & Research Engineer</title>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Mono:ital,wght@0,300;0,400;1,300&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet"/>
+<style>
+:root {
+  --bg: #080b10;
+  --surface: #0e1420;
+  --surface2: #151d2e;
+  --border: #1e2d45;
+  --accent: #00e5ff;
+  --accent2: #7c3aed;
+  --accent3: #10b981;
+  --text: #e8edf5;
+  --muted: #5a7080;
+  --highlight: #ff6b6b;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'DM Mono', monospace;
+  font-size: 14px;
+  line-height: 1.7;
+  overflow-x: hidden;
+}
+
+/* NOISE OVERLAY */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
+  pointer-events: none;
+  z-index: 999;
+  opacity: 0.4;
+}
+
+/* GRID BACKGROUND */
+body::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(0,229,255,0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0,229,255,0.03) 1px, transparent 1px);
+  background-size: 60px 60px;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* NAV */
+nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.2rem 3rem;
+  background: rgba(8,11,16,0.85);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border);
+}
+
+.nav-logo {
+  font-family: 'Syne', sans-serif;
+  font-weight: 800;
+  font-size: 1rem;
+  color: var(--accent);
+  letter-spacing: 0.05em;
+  text-decoration: none;
+}
+
+.nav-links {
+  display: flex;
+  gap: 2rem;
+  list-style: none;
+}
+
+.nav-links a {
+  color: var(--muted);
+  text-decoration: none;
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  transition: color 0.2s;
+}
+.nav-links a:hover { color: var(--accent); }
+
+/* HERO */
+.hero {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  padding: 8rem 3rem 4rem;
+  z-index: 1;
+  overflow: hidden;
+}
+
+.hero-glow {
+  position: absolute;
+  width: 600px; height: 600px;
+  background: radial-gradient(circle, rgba(0,229,255,0.07) 0%, transparent 70%);
+  top: 10%; left: -10%;
+  pointer-events: none;
+  animation: pulse 6s ease-in-out infinite;
+}
+.hero-glow2 {
+  position: absolute;
+  width: 400px; height: 400px;
+  background: radial-gradient(circle, rgba(124,58,237,0.06) 0%, transparent 70%);
+  bottom: 10%; right: 5%;
+  pointer-events: none;
+  animation: pulse 8s ease-in-out infinite reverse;
+}
+
+@keyframes pulse {
+  0%, 100% { transform: scale(1); opacity: 0.7; }
+  50% { transform: scale(1.1); opacity: 1; }
+}
+
+.hero-content {
+  max-width: 900px;
+  animation: fadeUp 0.9s ease both;
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.hero-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.7rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--accent);
+  border: 1px solid rgba(0,229,255,0.3);
+  padding: 0.35rem 0.9rem;
+  border-radius: 999px;
+  margin-bottom: 1.8rem;
+  animation: fadeUp 0.9s 0.1s ease both;
+}
+.hero-tag::before {
+  content: '';
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: var(--accent);
+  animation: blink 1.5s ease-in-out infinite;
+}
+@keyframes blink { 0%,100%{opacity:1} 50%{opacity:0.2} }
+
+.hero-name {
+  font-family: 'Syne', sans-serif;
+  font-size: clamp(3rem, 7vw, 5.5rem);
+  font-weight: 800;
+  line-height: 1.0;
+  letter-spacing: -0.02em;
+  margin-bottom: 0.5rem;
+  animation: fadeUp 0.9s 0.2s ease both;
+}
+
+.hero-name span {
+  display: block;
+  background: linear-gradient(135deg, #00e5ff 0%, #7c3aed 50%, #10b981 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.hero-subtitle {
+  font-family: 'Instrument Serif', serif;
+  font-style: italic;
+  font-size: clamp(1.1rem, 2.5vw, 1.5rem);
+  color: var(--muted);
+  margin-bottom: 2rem;
+  animation: fadeUp 0.9s 0.3s ease both;
+}
+
+.hero-desc {
+  max-width: 580px;
+  color: #8899aa;
+  font-size: 0.85rem;
+  line-height: 1.9;
+  margin-bottom: 2.5rem;
+  animation: fadeUp 0.9s 0.4s ease both;
+}
+
+.hero-stats {
+  display: flex;
+  gap: 2.5rem;
+  margin-bottom: 2.5rem;
+  animation: fadeUp 0.9s 0.5s ease both;
+  flex-wrap: wrap;
+}
+
+.stat {
+  display: flex;
+  flex-direction: column;
+}
+.stat-num {
+  font-family: 'Syne', sans-serif;
+  font-size: 2rem;
+  font-weight: 800;
+  color: var(--accent);
+  line-height: 1;
+}
+.stat-label {
+  font-size: 0.65rem;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-top: 0.3rem;
+}
+
+.hero-ctas {
+  display: flex;
+  gap: 1rem;
+  animation: fadeUp 0.9s 0.6s ease both;
+  flex-wrap: wrap;
+}
+
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: var(--accent);
+  color: #080b10;
+  font-family: 'Syne', sans-serif;
+  font-weight: 700;
+  font-size: 0.8rem;
+  letter-spacing: 0.05em;
+  padding: 0.75rem 1.5rem;
+  border-radius: 6px;
+  text-decoration: none;
+  transition: all 0.2s;
+}
+.btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(0,229,255,0.3); }
+
+.btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: transparent;
+  color: var(--text);
+  font-family: 'Syne', sans-serif;
+  font-weight: 600;
+  font-size: 0.8rem;
+  letter-spacing: 0.05em;
+  padding: 0.75rem 1.5rem;
+  border-radius: 6px;
+  border: 1px solid var(--border);
+  text-decoration: none;
+  transition: all 0.2s;
+}
+.btn-secondary:hover { border-color: var(--accent); color: var(--accent); }
+
+/* SECTIONS */
+section {
+  position: relative;
+  z-index: 1;
+  padding: 6rem 3rem;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.section-label {
+  font-size: 0.65rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 0.7rem;
+}
+
+.section-title {
+  font-family: 'Syne', sans-serif;
+  font-size: clamp(1.8rem, 4vw, 2.8rem);
+  font-weight: 800;
+  line-height: 1.1;
+  margin-bottom: 3rem;
+  letter-spacing: -0.02em;
+}
+
+.section-title em {
+  font-family: 'Instrument Serif', serif;
+  font-style: italic;
+  color: var(--muted);
+  font-weight: 400;
+}
+
+/* DIVIDER */
+.divider {
+  border: none;
+  border-top: 1px solid var(--border);
+  margin: 0 3rem;
+}
+
+/* PUBLICATIONS */
+.pub-grid {
+  display: grid;
+  gap: 1rem;
+}
+
+.pub-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 1.5rem 1.8rem;
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  gap: 1.2rem;
+  align-items: start;
+  transition: border-color 0.2s, transform 0.2s;
+}
+.pub-card:hover {
+  border-color: rgba(0,229,255,0.3);
+  transform: translateX(4px);
+}
+
+.pub-num {
+  font-family: 'Syne', sans-serif;
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: var(--border);
+  line-height: 1;
+  min-width: 2rem;
+}
+
+.pub-body {}
+.pub-venue {
+  font-size: 0.65rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--accent3);
+  margin-bottom: 0.4rem;
+}
+.pub-title {
+  font-family: 'Syne', sans-serif;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--text);
+  margin-bottom: 0.3rem;
+  line-height: 1.4;
+}
+.pub-desc {
+  font-size: 0.75rem;
+  color: var(--muted);
+}
+
+.pub-badge {
+  font-size: 0.65rem;
+  font-weight: 700;
+  padding: 0.2rem 0.6rem;
+  border-radius: 999px;
+  white-space: nowrap;
+  align-self: start;
+}
+.badge-accepted { background: rgba(16,185,129,0.15); color: #10b981; border: 1px solid rgba(16,185,129,0.3); }
+.badge-published { background: rgba(0,229,255,0.1); color: var(--accent); border: 1px solid rgba(0,229,255,0.25); }
+
+/* PROJECTS */
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 1.2rem;
+}
+
+.project-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 1.8rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  transition: all 0.25s;
+  position: relative;
+  overflow: hidden;
+}
+.project-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--accent), var(--accent2));
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+.project-card:hover { border-color: rgba(0,229,255,0.25); transform: translateY(-4px); }
+.project-card:hover::before { opacity: 1; }
+
+.project-icon {
+  font-size: 1.8rem;
+}
+.project-name {
+  font-family: 'Syne', sans-serif;
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--text);
+}
+.project-desc {
+  font-size: 0.78rem;
+  color: var(--muted);
+  line-height: 1.7;
+  flex: 1;
+}
+.project-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+.ptag {
+  font-size: 0.65rem;
+  padding: 0.2rem 0.55rem;
+  border-radius: 4px;
+  background: var(--surface2);
+  color: #6b7f99;
+  border: 1px solid var(--border);
+}
+.project-result {
+  font-size: 0.75rem;
+  color: var(--accent3);
+  font-weight: 600;
+}
+
+/* EXPERIENCE */
+.exp-timeline {
+  position: relative;
+  padding-left: 2rem;
+}
+.exp-timeline::before {
+  content: '';
+  position: absolute;
+  left: 0; top: 0; bottom: 0;
+  width: 1px;
+  background: linear-gradient(to bottom, var(--accent), var(--accent2), transparent);
+}
+
+.exp-item {
+  position: relative;
+  margin-bottom: 3rem;
+  padding-left: 1.5rem;
+}
+.exp-item::before {
+  content: '';
+  position: absolute;
+  left: -2.35rem;
+  top: 0.4rem;
+  width: 8px; height: 8px;
+  border-radius: 50%;
+  background: var(--accent);
+  border: 2px solid var(--bg);
+  box-shadow: 0 0 0 3px rgba(0,229,255,0.2);
+}
+
+.exp-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 0.3rem;
+}
+.exp-role {
+  font-family: 'Syne', sans-serif;
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--text);
+}
+.exp-date {
+  font-size: 0.7rem;
+  color: var(--muted);
+  letter-spacing: 0.05em;
+  white-space: nowrap;
+}
+.exp-org {
+  font-size: 0.78rem;
+  color: var(--accent);
+  margin-bottom: 0.8rem;
+}
+.exp-bullets {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+.exp-bullets li {
+  font-size: 0.78rem;
+  color: #7a8fa8;
+  padding-left: 1rem;
+  position: relative;
+  line-height: 1.6;
+}
+.exp-bullets li::before {
+  content: '▸';
+  position: absolute;
+  left: 0;
+  color: var(--accent2);
+  font-size: 0.65rem;
+  top: 0.15rem;
+}
+
+/* SKILLS */
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 1rem;
+}
+.skill-group {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 1.3rem 1.5rem;
+}
+.skill-group-name {
+  font-size: 0.65rem;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: var(--accent);
+  margin-bottom: 0.9rem;
+}
+.skill-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+}
+.skill-tag {
+  font-size: 0.72rem;
+  padding: 0.3rem 0.7rem;
+  border-radius: 6px;
+  background: var(--surface2);
+  color: var(--text);
+  border: 1px solid var(--border);
+  transition: all 0.15s;
+}
+.skill-tag:hover { border-color: var(--accent); color: var(--accent); }
+
+/* EDUCATION */
+.edu-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.2rem;
+}
+@media (max-width: 640px) { .edu-grid { grid-template-columns: 1fr; } }
+
+.edu-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 1.8rem;
+  position: relative;
+  overflow: hidden;
+}
+.edu-card::after {
+  content: '';
+  position: absolute;
+  bottom: -30px; right: -30px;
+  width: 100px; height: 100px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(0,229,255,0.05), transparent);
+}
+.edu-degree {
+  font-family: 'Syne', sans-serif;
+  font-size: 0.9rem;
+  font-weight: 700;
+  margin-bottom: 0.3rem;
+}
+.edu-school {
+  font-size: 0.75rem;
+  color: var(--accent);
+  margin-bottom: 0.2rem;
+}
+.edu-date {
+  font-size: 0.7rem;
+  color: var(--muted);
+  margin-bottom: 1rem;
+}
+.edu-detail {
+  font-size: 0.75rem;
+  color: #6b7f99;
+  line-height: 1.6;
+}
+
+/* CONTACT */
+.contact-row {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+.contact-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 1.2rem 1.8rem;
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  text-decoration: none;
+  color: var(--text);
+  font-size: 0.82rem;
+  transition: all 0.2s;
+}
+.contact-card:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+  transform: translateY(-2px);
+}
+.contact-icon { font-size: 1.1rem; }
+
+/* FOOTER */
+footer {
+  text-align: center;
+  padding: 3rem;
+  border-top: 1px solid var(--border);
+  font-size: 0.72rem;
+  color: var(--muted);
+  position: relative;
+  z-index: 1;
+}
+
+/* SCROLL REVEAL */
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (max-width: 768px) {
+  nav { padding: 1rem 1.5rem; }
+  .nav-links { display: none; }
+  .hero { padding: 7rem 1.5rem 3rem; }
+  section { padding: 4rem 1.5rem; }
+  .pub-card { grid-template-columns: 1fr; }
+  .pub-num { display: none; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a class="nav-logo" href="#">MM</a>
+  <ul class="nav-links">
+    <li><a href="#publications">Publications</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-glow"></div>
+  <div class="hero-glow2"></div>
+  <div class="hero-content">
+    <div class="hero-tag">Available for full-time roles · Singapore</div>
+    <h1 class="hero-name">
+      Madhumitha<br/>
+      <span>Murthy</span>
+    </h1>
+    <p class="hero-subtitle">ML & Research Engineer · NLP · Signal Processing</p>
+    <p class="hero-desc">
+      Machine Learning Engineer with end-to-end experience building intelligent systems — from transformer fine-tuning for multilingual NLP to digital twin simulation frameworks for 5G vehicle sensing. MSc candidate at NTU Singapore, graduating April 2026.
+    </p>
+    <div class="hero-stats">
+      <div class="stat">
+        <span class="stat-num">5</span>
+        <span class="stat-label">Publications</span>
+      </div>
+      <div class="stat">
+        <span class="stat-num">3</span>
+        <span class="stat-label">Top conferences</span>
+      </div>
+      <div class="stat">
+        <span class="stat-num">0.84</span>
+        <span class="stat-label">Best Macro-F1</span>
+      </div>
+      <div class="stat">
+        <span class="stat-num">3rd</span>
+        <span class="stat-label">Global ranking</span>
+      </div>
+    </div>
+    <div class="hero-ctas">
+      <a href="mailto:madhumit007@e.ntu.edu.sg" class="btn-primary">✉ Get in touch</a>
+      <a href="#publications" class="btn-secondary">View Publications →</a>
+    </div>
+  </div>
+</div>
+
+<hr class="divider"/>
+
+<!-- PUBLICATIONS -->
+<section id="publications">
+  <div class="reveal">
+    <p class="section-label">Research Output</p>
+    <h2 class="section-title">Publications <em>&amp; Presentations</em></h2>
+  </div>
+  <div class="pub-grid reveal">
+
+    <div class="pub-card">
+      <div class="pub-num">01</div>
+      <div class="pub-body">
+        <div class="pub-venue">IEEE ISCAS · 2025</div>
+        <div class="pub-title">ISAC for Intelligent Transportation: Ray-Tracing, Clutter Cancellation, and Sensing-Aided Beamforming</div>
+        <div class="pub-desc">5G-based Integrated Sensing and Communication for intelligent vehicle systems using ray-tracing simulation.</div>
+      </div>
+      <span class="pub-badge badge-accepted">Accepted</span>
+    </div>
+
+    <div class="pub-card">
+      <div class="pub-num">02</div>
+      <div class="pub-body">
+        <div class="pub-venue">npj Wireless Technology · Nature Portfolio</div>
+        <div class="pub-title">Integrated Communication and Sensing: Algorithms & 3D Simulation Insights</div>
+        <div class="pub-desc">End-to-end 3D digital twin simulation for ISAC systems with algorithmic performance analysis.</div>
+      </div>
+      <span class="pub-badge badge-accepted">Accepted</span>
+    </div>
+
+    <div class="pub-card">
+      <div class="pub-num">03</div>
+      <div class="pub-body">
+        <div class="pub-venue">DravidianLangTech Workshop · EACL 2024</div>
+        <div class="pub-title">Fake News Detection Using Deep Learning Models in Dravidian Languages</div>
+        <div class="pub-desc">Fine-tuned XLM-RoBERTa, mBERT, and ALBERT for multilingual misinformation detection. Macro-F1: 0.84 · 3rd place globally.</div>
+      </div>
+      <span class="pub-badge badge-published">Published</span>
+    </div>
+
+    <div class="pub-card">
+      <div class="pub-num">04</div>
+      <div class="pub-body">
+        <div class="pub-venue">CEUR Workshop Proceedings · FIRE 2023</div>
+        <div class="pub-title">Sarcasm Detection in Dravidian Languages using Transformer Models</div>
+        <div class="pub-desc">Deep learning pipeline for sarcasm identification in code-mixed social media text. Macro-F1: 0.70 / 0.68.</div>
+      </div>
+      <span class="pub-badge badge-published">Published</span>
+    </div>
+
+    <div class="pub-card">
+      <div class="pub-num">05</div>
+      <div class="pub-body">
+        <div class="pub-venue">LT-EDI Workshop · ACL 2023</div>
+        <div class="pub-title">Transformer Models to Detect Levels of Depression from Social Media Text</div>
+        <div class="pub-desc">Fine-tuned ALBERT and RoBERTa for mental health classification on social media data.</div>
+      </div>
+      <span class="pub-badge badge-published">Published</span>
+    </div>
+
+  </div>
+</section>
+
+<hr class="divider"/>
+
+<!-- PROJECTS -->
+<section id="projects">
+  <div class="reveal">
+    <p class="section-label">Selected Work</p>
+    <h2 class="section-title">Projects <em>&amp; Systems Built</em></h2>
+  </div>
+  <div class="projects-grid reveal">
+
+    <div class="project-card">
+      <div class="project-icon">🛰️</div>
+      <div class="project-name">5G ISAC Digital Twin Simulation</div>
+      <div class="project-desc">End-to-end simulation pipeline using NVIDIA Sionna ray tracing for vehicle sensing and localization in a realistic 3D urban environment built with Blender and OpenStreetMap.</div>
+      <div class="project-tags">
+        <span class="ptag">NVIDIA Sionna</span>
+        <span class="ptag">Python</span>
+        <span class="ptag">NumPy/SciPy</span>
+        <span class="ptag">Blender</span>
+        <span class="ptag">5G NR</span>
+      </div>
+      <div class="project-result">→ Published in IEEE ISCAS & npj Wireless Tech</div>
+    </div>
+
+    <div class="project-card">
+      <div class="project-icon">🌐</div>
+      <div class="project-name">Multilingual Fake News Detector</div>
+      <div class="project-desc">Full NLP pipeline for fake news detection in Dravidian languages. Fine-tuned XLM-RoBERTa, mBERT, and ALBERT on real-world multilingual social media datasets.</div>
+      <div class="project-tags">
+        <span class="ptag">HuggingFace</span>
+        <span class="ptag">XLM-RoBERTa</span>
+        <span class="ptag">mBERT</span>
+        <span class="ptag">Python</span>
+      </div>
+      <div class="project-result">→ Macro-F1: 0.84 · 3rd place globally at EACL 2024</div>
+    </div>
+
+    <div class="project-card">
+      <div class="project-icon">😏</div>
+      <div class="project-name">Sarcasm Identification (Dravidian)</div>
+      <div class="project-desc">Deep learning models for sarcasm detection in code-mixed Dravidian language social media text, with full NLP preprocessing and transformer-based training pipeline.</div>
+      <div class="project-tags">
+        <span class="ptag">Transformers</span>
+        <span class="ptag">PyTorch</span>
+        <span class="ptag">NLP</span>
+        <span class="ptag">FIRE 2023</span>
+      </div>
+      <div class="project-result">→ 5th & 8th place · Published at FIRE 2023</div>
+    </div>
+
+    <div class="project-card">
+      <div class="project-icon">🧠</div>
+      <div class="project-name">Depression Detection from Social Media</div>
+      <div class="project-desc">Classified levels of depression from social media text using fine-tuned ALBERT and RoBERTa. Built complete pipeline from raw data to evaluated model output.</div>
+      <div class="project-tags">
+        <span class="ptag">ALBERT</span>
+        <span class="ptag">RoBERTa</span>
+        <span class="ptag">HuggingFace</span>
+        <span class="ptag">ACL 2023</span>
+      </div>
+      <div class="project-result">→ Published at ACL LT-EDI Workshop 2023</div>
+    </div>
+
+    <div class="project-card">
+      <div class="project-icon">🎯</div>
+      <div class="project-name">Object Detection Lab (Mask R-CNN)</div>
+      <div class="project-desc">Developed full lab manual and reference implementation for object detection and instance segmentation using Mask R-CNN for NTU postgraduate students.</div>
+      <div class="project-tags">
+        <span class="ptag">Mask R-CNN</span>
+        <span class="ptag">Computer Vision</span>
+        <span class="ptag">PyTorch</span>
+      </div>
+      <div class="project-result">→ Used in NTU postgrad curriculum</div>
+    </div>
+
+    <div class="project-card">
+      <div class="project-icon">🏆</div>
+      <div class="project-name">Factorial HR — Bot Building (1st Place)</div>
+      <div class="project-desc">Won 1st place at Cliq-Trix 2024 (Zoho Corporation). Built an HR automation extension to streamline project management and HR workflows.</div>
+      <div class="project-tags">
+        <span class="ptag">Bot Building</span>
+        <span class="ptag">Automation</span>
+        <span class="ptag">Zoho</span>
+      </div>
+      <div class="project-result">→ ₹1,00,000 prize · Internship offer from Zoho</div>
+    </div>
+
+  </div>
+</section>
+
+<hr class="divider"/>
+
+<!-- EXPERIENCE -->
+<section id="experience">
+  <div class="reveal">
+    <p class="section-label">Where I've Worked</p>
+    <h2 class="section-title">Experience</h2>
+  </div>
+  <div class="exp-timeline reveal">
+
+    <div class="exp-item">
+      <div class="exp-header">
+        <div class="exp-role">Research Attachment</div>
+        <div class="exp-date">Oct 2024 – Dec 2025</div>
+      </div>
+      <div class="exp-org">Institute for Infocomm Research (I²R), A*STAR · Singapore</div>
+      <ul class="exp-bullets">
+        <li>Built digital twin simulation framework with NVIDIA Sionna ray tracing for vehicle sensing in 3D urban environments</li>
+        <li>Engineered end-to-end Python pipeline generating multi-scenario vehicle trajectory datasets for predictive modeling</li>
+        <li>Implemented physics-based trajectory prediction using motion modeling and signal processing for vehicle localization</li>
+        <li>Computed statistical metrics (localization error, detection accuracy) using NumPy and SciPy across simulation outputs</li>
+        <li>Contributed to IEEE ISCAS and Nature npj Wireless Technology publications</li>
+      </ul>
+    </div>
+
+    <div class="exp-item">
+      <div class="exp-header">
+        <div class="exp-role">Research Assistant</div>
+        <div class="exp-date">Sept 2025 – Dec 2025</div>
+      </div>
+      <div class="exp-org">NTU College of Computing & Data Science · Singapore</div>
+      <ul class="exp-bullets">
+        <li>Developed specifications for a bias-resilient peer evaluation system for NTU</li>
+        <li>Conducted literature review on rubric-based peer evaluation methodologies</li>
+      </ul>
+    </div>
+
+    <div class="exp-item">
+      <div class="exp-header">
+        <div class="exp-role">Postgraduate Teaching Assistant</div>
+        <div class="exp-date">Aug 2024 – Jan 2025</div>
+      </div>
+      <div class="exp-org">NTU School of Electrical & Electronic Engineering · Singapore</div>
+      <ul class="exp-bullets">
+        <li>Developed lab manual and reference implementation for object detection using Mask R-CNN</li>
+        <li>Graded coursework for IE2108: Data Structures & Algorithms in Python (2 groups)</li>
+      </ul>
+    </div>
+
+    <div class="exp-item">
+      <div class="exp-header">
+        <div class="exp-role">Android Project Trainee</div>
+        <div class="exp-date">Feb 2024 – Mar 2024</div>
+      </div>
+      <div class="exp-org">Zoho Corporation · India</div>
+      <ul class="exp-bullets">
+        <li>Built Kotlin-based banking application using Coroutines and asynchronous workflows</li>
+        <li>Implemented account management and transaction features in a full banking system</li>
+      </ul>
+    </div>
+
+  </div>
+</section>
+
+<hr class="divider"/>
+
+<!-- SKILLS -->
+<section id="skills">
+  <div class="reveal">
+    <p class="section-label">Technical Stack</p>
+    <h2 class="section-title">Skills</h2>
+  </div>
+  <div class="skills-grid reveal">
+    <div class="skill-group">
+      <div class="skill-group-name">Programming</div>
+      <div class="skill-tags">
+        <span class="skill-tag">Python</span>
+        <span class="skill-tag">MATLAB</span>
+        <span class="skill-tag">SQL</span>
+        <span class="skill-tag">Kotlin</span>
+      </div>
+    </div>
+    <div class="skill-group">
+      <div class="skill-group-name">Machine Learning</div>
+      <div class="skill-tags">
+        <span class="skill-tag">PyTorch</span>
+        <span class="skill-tag">TensorFlow</span>
+        <span class="skill-tag">Transformers</span>
+        <span class="skill-tag">LLMs</span>
+        <span class="skill-tag">Computer Vision</span>
+      </div>
+    </div>
+    <div class="skill-group">
+      <div class="skill-group-name">NLP & Models</div>
+      <div class="skill-tags">
+        <span class="skill-tag">HuggingFace</span>
+        <span class="skill-tag">XLM-RoBERTa</span>
+        <span class="skill-tag">mBERT</span>
+        <span class="skill-tag">ALBERT</span>
+      </div>
+    </div>
+    <div class="skill-group">
+      <div class="skill-group-name">Signal Processing</div>
+      <div class="skill-tags">
+        <span class="skill-tag">5G NR</span>
+        <span class="skill-tag">Beamforming</span>
+        <span class="skill-tag">Delay-Doppler</span>
+        <span class="skill-tag">Channel Modeling</span>
+      </div>
+    </div>
+    <div class="skill-group">
+      <div class="skill-group-name">Simulation & Digital Twin</div>
+      <div class="skill-tags">
+        <span class="skill-tag">NVIDIA Sionna</span>
+        <span class="skill-tag">Ray Tracing</span>
+        <span class="skill-tag">Blender</span>
+        <span class="skill-tag">OpenStreetMap</span>
+      </div>
+    </div>
+    <div class="skill-group">
+      <div class="skill-group-name">Tools & Infra</div>
+      <div class="skill-tags">
+        <span class="skill-tag">Git</span>
+        <span class="skill-tag">Docker</span>
+        <span class="skill-tag">FastAPI</span>
+        <span class="skill-tag">NumPy</span>
+        <span class="skill-tag">SciPy</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="divider"/>
+
+<!-- EDUCATION -->
+<section id="education">
+  <div class="reveal">
+    <p class="section-label">Academic Background</p>
+    <h2 class="section-title">Education</h2>
+  </div>
+  <div class="edu-grid reveal">
+    <div class="edu-card">
+      <div class="edu-degree">MSc in Signal Processing & Machine Learning</div>
+      <div class="edu-school">Nanyang Technological University, Singapore</div>
+      <div class="edu-date">Aug 2024 – Apr 2026 (Expected)</div>
+      <div class="edu-detail">School of Electrical & Electronic Engineering. Dissertation with I²R, A*STAR on ISAC using 5G for V2V/I communication and localization.<br/><br/>
+      Coursework: Deep Learning, NLP, AI & Data Mining, Pattern Recognition, Machine Vision, DSP, Probability & Random Processes.</div>
+    </div>
+    <div class="edu-card">
+      <div class="edu-degree">BE in Computer Science & Engineering</div>
+      <div class="edu-school">Meenakshi Sundararajan Engineering College, Anna University</div>
+      <div class="edu-date">Sept 2020 – July 2024</div>
+      <div class="edu-detail">Chennai, India. Strong foundation in computer science with focus on software engineering, data structures, and algorithms. First-class honours.</div>
+    </div>
+  </div>
+</section>
+
+<hr class="divider"/>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="reveal">
+    <p class="section-label">Let's Connect</p>
+    <h2 class="section-title">Get in <em>Touch</em></h2>
+  </div>
+  <div class="contact-row reveal">
+    <a href="mailto:madhumit007@e.ntu.edu.sg" class="contact-card">
+      <span class="contact-icon">✉</span>
+      <span>madhumit007@e.ntu.edu.sg</span>
+    </a>
+    <a href="http://www.linkedin.com/in/madhumitha-murthy-4801b7223" target="_blank" class="contact-card">
+      <span class="contact-icon">💼</span>
+      <span>LinkedIn</span>
+    </a>
+    <a href="tel:+6583191000" class="contact-card">
+      <span class="contact-icon">📱</span>
+      <span>+65 8319 1000</span>
+    </a>
+  </div>
+</section>
+
+<footer>
+  <p>Madhumitha Murthy · ML & Research Engineer · Singapore · 2026</p>
+</footer>
+
+<script>
+// Scroll reveal
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+}, { threshold: 0.1 });
+document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+</script>
+</body>
+</html>
+
+
