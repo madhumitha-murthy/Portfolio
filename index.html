@@ -653,6 +653,54 @@ section {
   line-height: 1.6;
 }
 
+/* ACHIEVEMENTS */
+.achievements-grid {
+  display: grid;
+  gap: 1rem;
+}
+.achievement-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 1.4rem 1.8rem;
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  transition: border-color 0.2s, transform 0.2s;
+}
+.achievement-card:hover {
+  border-color: rgba(0,229,255,0.3);
+  transform: translateX(4px);
+}
+.achievement-icon {
+  font-size: 1.8rem;
+  flex-shrink: 0;
+}
+.achievement-title {
+  font-family: 'Syne', sans-serif;
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 0.25rem;
+}
+.achievement-desc {
+  font-size: 0.75rem;
+  color: var(--muted);
+  line-height: 1.6;
+}
+.achievement-badge {
+  font-size: 0.65rem;
+  font-weight: 700;
+  padding: 0.2rem 0.6rem;
+  border-radius: 999px;
+  white-space: nowrap;
+  margin-left: auto;
+  flex-shrink: 0;
+  background: rgba(0,229,255,0.1);
+  color: var(--accent);
+  border: 1px solid rgba(0,229,255,0.25);
+}
+
 /* CONTACT */
 .contact-row {
   display: flex;
@@ -796,6 +844,8 @@ footer {
     <li><a href="#skills">Skills</a></li>
     <li><a href="#experience">Experience</a></li>
     <li><a href="#publications">Publications</a></li>
+    <li><a href="#education">Education</a></li>
+    <li><a href="#achievements">Achievements</a></li>
     <li><a href="#contact">Contact</a></li>
   </ul>
 </nav>
@@ -830,8 +880,8 @@ footer {
         <span class="stat-label">Global · NLP Task</span>
       </div>
       <div class="stat">
-        <span class="stat-num">2</span>
-        <span class="stat-label">Top-Venue Papers</span>
+        <span class="stat-num">70K</span>
+        <span class="stat-label">Competitors Beat · Zoho</span>
       </div>
     </div>
     <div class="hero-ctas">
@@ -859,7 +909,7 @@ footer {
       <div class="project-featured-badge">Production ML</div>
       <div class="project-icon" aria-hidden="true">📄</div>
       <div class="project-name">RAG-Powered Document Q&amp;A API</div>
-      <div class="project-desc">Upload any PDF → chunk &amp; embed with HuggingFace sentence-transformers → semantic search via FAISS → grounded answers via FastAPI. 3 retrieval configs (chunk size, top-k) benchmarked in MLflow. Containerised with Docker.</div>
+      <div class="project-desc">Upload any PDF → section-aware chunking with NL context prefixes → HuggingFace sentence-transformer embeddings → FAISS semantic search → Groq Llama 3.3-70B grounded answers via FastAPI. 3 retrieval configs benchmarked in MLflow; PDFs and index persisted to AWS S3. Containerised with Docker.</div>
       <div class="project-tags">
         <span class="ptag">LangChain</span>
         <span class="ptag">FAISS</span>
@@ -867,15 +917,16 @@ footer {
         <span class="ptag">FastAPI</span>
         <span class="ptag">Docker</span>
         <span class="ptag">MLflow</span>
+        <span class="ptag">AWS S3</span>
       </div>
-      <div class="project-result">→ End-to-end RAG pipeline · FastAPI + Docker deployment</div>
+      <div class="project-result">→ 64% keyword recall · 0.63s latency · section-aware chunking + top-k tuning improved recall from 28% to 64% · <a href="https://github.com/madhumitha-murthy/rag-document-qa" target="_blank" rel="noopener noreferrer">GitHub →</a></div>
     </div>
 
     <div class="project-card project-card--featured">
       <div class="project-featured-badge">Production ML</div>
       <div class="project-icon" aria-hidden="true">⚡</div>
-      <div class="project-name">LLM Fine-Tuning with LoRA (PEFT)</div>
-      <div class="project-desc">Fine-tuned DistilBERT on FinancialPhraseBank for financial sentiment using LoRA — 90%+ fewer trainable parameters vs full fine-tuning. 3 runs tracked in MLflow across learning rates and LoRA rank; best checkpoint served via FastAPI + Docker.</div>
+      <div class="project-name">Domain-Specific LLM Fine-Tuning with LoRA</div>
+      <div class="project-desc">Fine-tuned DistilBERT on FinancialPhraseBank for 3-class sentiment using LoRA (PEFT) — 98.7% fewer trainable parameters (887K vs 67M full fine-tune). 3 MLflow experiments tracked across learning rate and LoRA rank. Deployed via FastAPI REST API on AWS EC2; adapter checkpoints stored in AWS S3, containerised with Docker.</div>
       <div class="project-tags">
         <span class="ptag">LoRA / PEFT</span>
         <span class="ptag">DistilBERT</span>
@@ -883,15 +934,16 @@ footer {
         <span class="ptag">FastAPI</span>
         <span class="ptag">Docker</span>
         <span class="ptag">MLflow</span>
+        <span class="ptag">AWS (EC2, S3)</span>
       </div>
-      <div class="project-result">→ 90%+ parameter reduction vs full fine-tuning</div>
+      <div class="project-result">→ F1 = 0.846 · Accuracy = 89.2% · 98.7% parameter reduction vs full fine-tune · <a href="https://github.com/madhumitha-murthy/llm-finetuning-lora" target="_blank" rel="noopener noreferrer">GitHub →</a></div>
     </div>
 
     <div class="project-card project-card--featured">
       <div class="project-featured-badge">Production ML</div>
       <div class="project-icon" aria-hidden="true">📈</div>
       <div class="project-name">Time-Series Anomaly Detection Pipeline</div>
-      <div class="project-desc">End-to-end anomaly detection on NASA SMAP multivariate sensor data — LSTM Autoencoder vs Isolation Forest baseline. Threshold tuned on validation set; both models tracked in MLflow. REST endpoint returns anomaly score and binary flag per time-series window.</div>
+      <div class="project-desc">Anomaly detection on NASA SMAP satellite sensor data (54 channels, 562 anomaly sequences) — LSTM Autoencoder vs Isolation Forest baseline. Pandas + NumPy for preprocessing and windowing. Both models tracked in MLflow for A/B comparison. FastAPI REST API accepts a multivariate time-series window and returns anomaly score and binary flag; containerised with Docker.</div>
       <div class="project-tags">
         <span class="ptag">LSTM Autoencoder</span>
         <span class="ptag">PyTorch</span>
@@ -900,7 +952,7 @@ footer {
         <span class="ptag">Docker</span>
         <span class="ptag">MLflow</span>
       </div>
-      <div class="project-result">→ LSTM Autoencoder vs Isolation Forest · MLflow experiment tracking</div>
+      <div class="project-result">→ LSTM F1 = 0.73 vs Isolation Forest F1 = 0.55 · 33% F1 improvement · ~12ms inference latency · <a href="https://github.com/madhumitha-murthy/timeseries-anomaly-detection" target="_blank" rel="noopener noreferrer">GitHub →</a></div>
     </div>
 
     <div class="project-card">
@@ -914,22 +966,24 @@ footer {
         <span class="ptag">Blender</span>
         <span class="ptag">5G NR</span>
       </div>
-      <div class="project-result">→ First-authored IEEE ISCAS 2025 · Co-authored Nature npj Wireless Tech</div>
+      <div class="project-result">→ First-authored IEEE ISCAS 2025 · Co-authored Nature npj Wireless Tech · <a href="https://github.com/madhumitha-murthy/ISAC-Intelligent-Transportation-" target="_blank" rel="noopener noreferrer">GitHub →</a></div>
     </div>
 
     <div class="project-card">
       <div class="project-icon" aria-hidden="true">🌐</div>
-      <div class="project-name">Multilingual Fake News Detector</div>
-      <div class="project-desc">Full NLP pipeline for fake news detection in Dravidian languages. Fine-tuned XLM-RoBERTa, mBERT, and ALBERT on real-world multilingual social media datasets.</div>
+      <div class="project-name">Fake News Detection in Dravidian Languages</div>
+      <div class="project-desc">Fine-tuned XLM-RoBERTa, mBERT, and ALBERT for multilingual misinformation detection in Dravidian languages. Achieved Macro-F1 of 0.84 and 3rd place on the DravidianLangTech@EACL 2024 shared task leaderboard. Published at DravidianLangTech Workshop, EACL 2024.</div>
       <div class="project-tags">
-        <span class="ptag">HuggingFace</span>
         <span class="ptag">XLM-RoBERTa</span>
         <span class="ptag">mBERT</span>
+        <span class="ptag">ALBERT</span>
+        <span class="ptag">HuggingFace</span>
         <span class="ptag">Python</span>
       </div>
-      <div class="project-result">→ Macro-F1: 0.84 · 3rd place globally at EACL 2024</div>
+      <div class="project-result">→ Macro-F1: 0.84 · 3rd place globally · EACL 2024 · <a href="https://github.com/madhumitha-murthy/fake_news_detection" target="_blank" rel="noopener noreferrer">GitHub →</a></div>
     </div>
 
+    <!-- Depression Detection project commented out
     <div class="project-card">
       <div class="project-icon" aria-hidden="true">🧠</div>
       <div class="project-name">Depression Detection from Social Media</div>
@@ -942,7 +996,9 @@ footer {
       </div>
       <div class="project-result">→ Published at ACL LT-EDI Workshop 2023</div>
     </div>
+    -->
 
+    <!-- Sarcasm Identification project commented out
     <div class="project-card">
       <div class="project-icon" aria-hidden="true">😏</div>
       <div class="project-name">Sarcasm Identification (Dravidian)</div>
@@ -955,6 +1011,7 @@ footer {
       </div>
       <div class="project-result">→ 5th &amp; 8th place globally · Published at FIRE 2023</div>
     </div>
+    -->
 
     <div class="project-card">
       <div class="project-icon" aria-hidden="true">🎯</div>
@@ -965,20 +1022,22 @@ footer {
         <span class="ptag">Computer Vision</span>
         <span class="ptag">PyTorch</span>
       </div>
-      <div class="project-result">→ Adopted in NTU postgrad curriculum</div>
+      <div class="project-result">→ Adopted in NTU postgrad curriculum · <a href="https://github.com/madhumitha-murthy/mask-rcnn-object-detection" target="_blank" rel="noopener noreferrer">GitHub →</a></div>
     </div>
 
+    <!-- HR Automation Bot commented out
     <div class="project-card">
       <div class="project-icon" aria-hidden="true">🏆</div>
       <div class="project-name">HR Automation Bot — 1st Place, Cliq-Trix 2024</div>
-      <div class="project-desc">Built an HR workflow automation extension at Zoho's internal hackathon. Won 1st place out of all participants; awarded ₹1,00,000 and an internship offer from Zoho.</div>
+      <div class="project-desc">Built an HR workflow automation extension at Zoho's internal hackathon. Won 1st place out of 70,000 participants; published to the Zoho Cliq marketplace, awarded ₹1,00,000 and an internship offer from Zoho.</div>
       <div class="project-tags">
         <span class="ptag">Automation</span>
         <span class="ptag">Zoho Cliq</span>
         <span class="ptag">Hackathon</span>
       </div>
-      <div class="project-result">→ ₹1,00,000 prize · Internship offer from Zoho Corporation</div>
+      <div class="project-result">→ ₹1,00,000 prize · Published to Zoho Cliq marketplace · Internship offer from Zoho</div>
     </div>
+    -->
 
   </div>
 </section>
@@ -993,6 +1052,56 @@ footer {
   </div>
   <div class="skills-grid reveal">
     <div class="skill-group">
+      <div class="skill-group-name">ML / Deep Learning</div>
+      <div class="skill-tags">
+        <span class="skill-tag">PyTorch</span>
+        <span class="skill-tag">TensorFlow</span>
+        <span class="skill-tag">HuggingFace Transformers</span>
+        <span class="skill-tag">scikit-learn</span>
+        <span class="skill-tag">LLMs</span>
+        <span class="skill-tag">LSTM</span>
+        <span class="skill-tag">Transformer</span>
+      </div>
+    </div>
+    <div class="skill-group">
+      <div class="skill-group-name">NLP</div>
+      <div class="skill-tags">
+        <span class="skill-tag">Transformer Fine-Tuning</span>
+        <span class="skill-tag">LoRA / PEFT</span>
+        <span class="skill-tag">Prompt Engineering</span>
+        <span class="skill-tag">Multilingual NLP</span>
+        <span class="skill-tag">RAG</span>
+        <span class="skill-tag">FAISS</span>
+        <span class="skill-tag">Vector Embeddings</span>
+        <span class="skill-tag">XLM-RoBERTa</span>
+        <span class="skill-tag">mBERT</span>
+      </div>
+    </div>
+    <div class="skill-group">
+      <div class="skill-group-name">MLOps / Deploy</div>
+      <div class="skill-tags">
+        <span class="skill-tag">FastAPI</span>
+        <span class="skill-tag">REST API</span>
+        <span class="skill-tag">Docker</span>
+        <span class="skill-tag">CI/CD</span>
+        <span class="skill-tag">MLflow</span>
+        <span class="skill-tag">LangChain</span>
+        <span class="skill-tag">A/B Testing</span>
+        <span class="skill-tag">Experiment Tracking</span>
+        <span class="skill-tag">Git</span>
+        <span class="skill-tag">HuggingFace Spaces</span>
+        <span class="skill-tag">AWS (EC2, S3)</span>
+      </div>
+    </div>
+    <div class="skill-group">
+      <div class="skill-group-name">Scientific Computing</div>
+      <div class="skill-tags">
+        <span class="skill-tag">NumPy</span>
+        <span class="skill-tag">Pandas</span>
+        <span class="skill-tag">SciPy</span>
+      </div>
+    </div>
+    <div class="skill-group">
       <div class="skill-group-name">Programming</div>
       <div class="skill-tags">
         <span class="skill-tag">Python</span>
@@ -1002,57 +1111,23 @@ footer {
       </div>
     </div>
     <div class="skill-group">
-      <div class="skill-group-name">Machine Learning</div>
-      <div class="skill-tags">
-        <span class="skill-tag">PyTorch</span>
-        <span class="skill-tag">TensorFlow</span>
-        <span class="skill-tag">scikit-learn</span>
-        <span class="skill-tag">HuggingFace</span>
-        <span class="skill-tag">Computer Vision</span>
-        <span class="skill-tag">NumPy</span>
-        <span class="skill-tag">SciPy</span>
-      </div>
-    </div>
-    <div class="skill-group">
-      <div class="skill-group-name">NLP &amp; LLMs</div>
-      <div class="skill-tags">
-        <span class="skill-tag">Transformer Fine-Tuning</span>
-        <span class="skill-tag">LoRA / PEFT</span>
-        <span class="skill-tag">RAG</span>
-        <span class="skill-tag">LangChain</span>
-        <span class="skill-tag">FAISS</span>
-        <span class="skill-tag">XLM-RoBERTa</span>
-        <span class="skill-tag">mBERT</span>
-        <span class="skill-tag">ALBERT</span>
-      </div>
-    </div>
-    <div class="skill-group">
-      <div class="skill-group-name">MLOps &amp; Deploy</div>
-      <div class="skill-tags">
-        <span class="skill-tag">MLflow</span>
-        <span class="skill-tag">FastAPI</span>
-        <span class="skill-tag">Docker</span>
-        <span class="skill-tag">HuggingFace Spaces</span>
-        <span class="skill-tag">Git</span>
-      </div>
-    </div>
-    <div class="skill-group">
       <div class="skill-group-name">Signal Processing</div>
       <div class="skill-tags">
-        <span class="skill-tag">5G NR</span>
-        <span class="skill-tag">ISAC</span>
         <span class="skill-tag">OFDM Radar</span>
+        <span class="skill-tag">5G/6G NR</span>
+        <span class="skill-tag">ISAC</span>
         <span class="skill-tag">Beamforming</span>
-        <span class="skill-tag">Delay-Doppler</span>
+        <span class="skill-tag">Delay-Doppler Processing</span>
+        <span class="skill-tag">Channel Modelling</span>
       </div>
     </div>
     <div class="skill-group">
-      <div class="skill-group-name">Simulation &amp; Digital Twin</div>
+      <div class="skill-group-name">Simulation</div>
       <div class="skill-tags">
-        <span class="skill-tag">NVIDIA Sionna</span>
-        <span class="skill-tag">Ray Tracing</span>
+        <span class="skill-tag">NVIDIA Sionna Ray Tracing</span>
         <span class="skill-tag">Blender</span>
         <span class="skill-tag">OpenStreetMap</span>
+        <span class="skill-tag">Digital Twin</span>
       </div>
     </div>
   </div>
@@ -1071,7 +1146,7 @@ footer {
     <div class="exp-item">
       <div class="exp-header">
         <div class="exp-role">Research Attachment</div>
-        <div class="exp-date">Oct 2024 – Present</div>
+        <div class="exp-date">Oct 2024 – Dec 2026</div>
       </div>
       <div class="exp-org">Institute for Infocomm Research (I²R), A*STAR · Singapore</div>
       <ul class="exp-bullets">
@@ -1079,7 +1154,7 @@ footer {
         <li>Constructed a 3D digital twin by integrating OpenStreetMap road geometry and Blender-modelled buildings, enabling physics-consistent signal modelling across monostatic and bistatic radar configurations</li>
         <li>Designed OFDM radar algorithm with Static Clutter Cancellation (SCC) at 59 GHz / 100 MHz bandwidth, suppressing static reflections to isolate moving vehicle targets with distinct Doppler signatures</li>
         <li>Developed Doppler-based trajectory prediction algorithm achieving close vehicle tracking at update intervals as short as 0.333s, enabling proactive beam alignment in high-mobility scenarios</li>
-        <li>Implemented sensing-aided beamforming leveraging predicted vehicle positions to update weights in real time, reducing complexity vs true DOA-based benchmarks</li>
+        <li>Implemented sensing-aided beamforming using predicted vehicle positions to update beamforming weights in real time, achieving BER comparable to perfect-DOA benchmarks at lower computational cost</li>
         <li>First-authored IEEE ISCAS 2025; co-authored npj Wireless Technology (Nature Portfolio)</li>
       </ul>
     </div>
@@ -1116,7 +1191,7 @@ footer {
       <div class="exp-org">Zoho Corporation · India</div>
       <ul class="exp-bullets">
         <li>Built Kotlin-based banking application with account management and transaction features using Coroutines and asynchronous workflows</li>
-        <li>Won 1st place at Cliq-Trix 2024 (internal bot-building competition); awarded ₹1,00,000 prize and received internship offer</li>
+        <li>Won 1st place at Cliq-Trix 2024 out of 70,000 participants (bot-building competition); awarded ₹1,00,000 cash prize and offered a full-time position at Zoho</li>
       </ul>
     </div>
 
@@ -1157,7 +1232,7 @@ footer {
       <div class="pub-num">03</div>
       <div class="pub-body">
         <div class="pub-venue">DravidianLangTech Workshop · EACL 2024</div>
-        <div class="pub-title">Fake News Detection Using Deep Learning Models in Dravidian Languages</div>
+        <div class="pub-title"><a href="https://aclanthology.org/2024.dravidianlangtech-1.25" target="_blank" rel="noopener noreferrer" style="color:inherit;text-decoration:none;">Fake News Detection Using Deep Learning Models in Dravidian Languages</a></div>
         <div class="pub-desc">Fine-tuned XLM-RoBERTa, mBERT, and ALBERT for multilingual misinformation detection. Macro-F1: 0.84 · 3rd place globally.</div>
       </div>
       <span class="pub-badge badge-published">Published</span>
@@ -1167,7 +1242,7 @@ footer {
       <div class="pub-num">04</div>
       <div class="pub-body">
         <div class="pub-venue">CEUR Workshop Proceedings · FIRE 2023</div>
-        <div class="pub-title">Sarcasm Detection in Dravidian Languages using Transformer Models</div>
+        <div class="pub-title"><a href="https://ceur-ws.org/Vol-3681/T5-9.pdf" target="_blank" rel="noopener noreferrer" style="color:inherit;text-decoration:none;">Sarcasm Detection in Dravidian Languages using Transformer Models</a></div>
         <div class="pub-desc">Deep learning pipeline for sarcasm identification in code-mixed social media text. Macro-F1: 0.70 / 0.68.</div>
       </div>
       <span class="pub-badge badge-published">Published</span>
@@ -1177,7 +1252,7 @@ footer {
       <div class="pub-num">05</div>
       <div class="pub-body">
         <div class="pub-venue">LT-EDI Workshop · ACL 2023</div>
-        <div class="pub-title">Transformer Models to Detect Levels of Depression from Social Media Text</div>
+        <div class="pub-title"><a href="https://aclanthology.org/2023.ltedi-1.0" target="_blank" rel="noopener noreferrer" style="color:inherit;text-decoration:none;">Transformer Models to Detect Levels of Depression from Social Media Text</a></div>
         <div class="pub-desc">Fine-tuned ALBERT and RoBERTa for mental health classification on social media data.</div>
       </div>
       <span class="pub-badge badge-published">Published</span>
@@ -1199,8 +1274,8 @@ footer {
       <div class="edu-degree">MSc in Signal Processing & Machine Learning</div>
       <div class="edu-school">Nanyang Technological University, Singapore</div>
       <div class="edu-date">Aug 2024 – Jun 2026 (Expected)</div>
-      <div class="edu-detail">School of Electrical & Electronic Engineering. Dissertation with I²R, A*STAR on ISAC using 5G for V2V/I communication and localization.<br/><br/>
-      Coursework: Deep Learning, NLP, AI & Data Mining, Pattern Recognition, Machine Vision, DSP, Probability & Random Processes.</div>
+      <div class="edu-detail">School of Electrical & Electronic Engineering. Dissertation with I²R, A*STAR on ISAC using 5G for V2V/Infrastructure Communication and Localisation.<br/><br/>
+      Coursework: Genetic Algorithms &amp; ML, NLP, AI &amp; Data Mining, Pattern Recognition &amp; Deep Learning, Real-Time DSP, Machine Vision.</div>
     </div>
     <div class="edu-card">
       <div class="edu-degree">BE in Computer Science & Engineering</div>
@@ -1208,6 +1283,46 @@ footer {
       <div class="edu-date">Sept 2020 – July 2024</div>
       <div class="edu-detail">Chennai, India. First-class honours.<br/><br/>Coursework: Data Structures &amp; Algorithms, Software Engineering, Database Systems, Computer Networks.</div>
     </div>
+  </div>
+</section>
+
+<hr class="divider"/>
+
+<!-- ACHIEVEMENTS -->
+<section id="achievements">
+  <div class="reveal">
+    <p class="section-label">Recognition</p>
+    <h2 class="section-title">Achievements</h2>
+  </div>
+  <div class="achievements-grid reveal">
+
+    <div class="achievement-card">
+      <div class="achievement-icon" aria-hidden="true">🏆</div>
+      <div>
+        <div class="achievement-title">1st Place — Cliq-Trix 2024, Zoho Corporation</div>
+        <div class="achievement-desc">Won Zoho's internal bot-building competition out of 70,000 participants. Built an HR workflow automation extension published to the Zoho Cliq marketplace. Awarded ₹1,00,000 cash prize and internship offer.</div>
+      </div>
+      <span class="achievement-badge">1st / 70,000</span>
+    </div>
+
+    <div class="achievement-card">
+      <div class="achievement-icon" aria-hidden="true">🥉</div>
+      <div>
+        <div class="achievement-title">3rd Place — DravidianLangTech @ EACL 2024</div>
+        <div class="achievement-desc">Fake News Detection shared task leaderboard. Macro-F1: 0.84 across Dravidian languages.</div>
+      </div>
+      <span class="achievement-badge">3rd Globally</span>
+    </div>
+
+    <div class="achievement-card">
+      <div class="achievement-icon" aria-hidden="true">🎖️</div>
+      <div>
+        <div class="achievement-title">Top-10 — FIRE 2023, Sarcasm Detection</div>
+        <div class="achievement-desc">5th and 8th place globally across two sarcasm detection tasks in Dravidian languages.</div>
+      </div>
+      <span class="achievement-badge">Top 10 Globally</span>
+    </div>
+
   </div>
 </section>
 
