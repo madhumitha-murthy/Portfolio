@@ -3,19 +3,19 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<meta name="description" content="Madhumitha Murthy — Machine Learning Engineer. RAG, LLM fine-tuning, NLP, 5G sensing. 5 peer-reviewed publications. MSc NTU Singapore, graduating June 2026.">
+<meta name="description" content="Madhumitha Murthy — AI Engineer. Agentic AI, RAG, LLM fine-tuning, NLP, 5G sensing. 5 peer-reviewed publications. MSc NTU Singapore, graduating June 2026.">
 <meta name="author" content="Madhumitha Murthy">
 
 <!-- Open Graph / Social Preview -->
-<meta property="og:title" content="Madhumitha Murthy — Machine Learning Engineer">
-<meta property="og:description" content="ML Engineer: RAG pipelines, LLM fine-tuning, NLP, 5G ISAC simulation. 5 peer-reviewed publications. MSc NTU Singapore.">
+<meta property="og:title" content="Madhumitha Murthy — AI Engineer">
+<meta property="og:description" content="AI Engineer: Agentic AI systems, RAG pipelines, LLM fine-tuning, NLP, 5G ISAC simulation. 5 peer-reviewed publications. MSc NTU Singapore.">
 <meta property="og:type" content="website">
 <meta property="og:image" content="profile.png">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Madhumitha Murthy — Machine Learning Engineer">
-<meta name="twitter:description" content="ML Engineer: RAG pipelines, LLM fine-tuning, NLP, 5G ISAC simulation. 5 peer-reviewed publications. MSc NTU Singapore.">
+<meta name="twitter:title" content="Madhumitha Murthy — AI Engineer">
+<meta name="twitter:description" content="AI Engineer: Agentic AI systems, RAG pipelines, LLM fine-tuning, NLP, 5G ISAC simulation. 5 peer-reviewed publications. MSc NTU Singapore.">
 
-<title>Madhumitha Murthy — Machine Learning Engineer</title>
+<title>Madhumitha Murthy — AI Engineer</title>
 
 <!-- Favicon -->
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🧠</text></svg>"/>
@@ -862,9 +862,9 @@ footer {
       Madhumitha<br/>
       <span>Murthy</span>
     </h1>
-    <p class="hero-subtitle">Machine Learning Engineer · LLMs · NLP · Production ML</p>
+    <p class="hero-subtitle">AI Engineer · Agentic AI · LLMs · NLP · Production ML</p>
     <p class="hero-desc">
-      I build end-to-end ML systems — RAG pipelines, fine-tuned LLMs, anomaly detection, and 5G sensing simulations. Production-ready with FastAPI, Docker, and MLflow. 5 peer-reviewed publications. MSc at NTU Singapore, graduating June 2026.
+      I build end-to-end AI systems — agentic pipelines, RAG, fine-tuned LLMs, anomaly detection, and 5G sensing simulations. Production-ready with FastAPI, Docker, Kubernetes, and GitHub Actions CI/CD. 5 peer-reviewed publications. MSc at NTU Singapore, graduating June 2026.
     </p>
     <div class="hero-stats">
       <div class="stat">
@@ -904,6 +904,23 @@ footer {
     <h2 class="section-title">Projects <em>&amp; Systems</em></h2>
   </div>
   <div class="projects-grid reveal">
+
+    <div class="project-card project-card--featured">
+      <div class="project-featured-badge">Agentic AI</div>
+      <div class="project-icon" aria-hidden="true">🤖</div>
+      <div class="project-name">Agentic AI Tech News Pipeline</div>
+      <div class="project-desc">End-to-end agentic pipeline that autonomously fetches articles from ArXiv, HackerNews, TechCrunch, VentureBeat, and AI research blogs; filters by relevance; summarises with Gemini 2.0 Flash; and delivers a styled HTML digest to Gmail at 11:55 PM SGT daily. Built-in RAG query interface using ChromaDB + Sentence Transformers — ask questions over stored articles in natural language.</div>
+      <div class="project-tags">
+        <span class="ptag">Agentic AI</span>
+        <span class="ptag">Gemini 2.0 Flash</span>
+        <span class="ptag">ChromaDB</span>
+        <span class="ptag">RAG</span>
+        <span class="ptag">Docker</span>
+        <span class="ptag">Kubernetes</span>
+        <span class="ptag">GitHub Actions</span>
+      </div>
+      <div class="project-result">→ 97 articles fetched daily · semantic RAG query interface · CI/CD + K8s CronJob deployment · <a href="https://github.com/madhumitha-murthy/tech-news-agent" target="_blank" rel="noopener noreferrer">GitHub →</a></div>
+    </div>
 
     <div class="project-card project-card--featured">
       <div class="project-featured-badge">Production ML</div>
@@ -953,6 +970,35 @@ footer {
         <span class="ptag">MLflow</span>
       </div>
       <div class="project-result">→ LSTM F1 = 0.73 vs Isolation Forest F1 = 0.55 · 33% F1 improvement · ~12ms inference latency · <a href="https://github.com/madhumitha-murthy/timeseries-anomaly-detection" target="_blank" rel="noopener noreferrer">GitHub →</a></div>
+    </div>
+
+    <div class="project-card">
+      <div class="project-icon" aria-hidden="true">🔬</div>
+      <div class="project-name">Industrial Defect Detection Pipeline</div>
+      <div class="project-desc">End-to-end defect detection and characterisation pipeline on the MVTec Anomaly Detection dataset (crack, cut, hole, print defect types). scikit-image preprocessing: Gaussian denoising, Otsu thresholding, morphological cleaning, regionprops measurement. OpenCV for contour detection and mask post-processing. Fine-tuned PyTorch ResNet18 for binary classification, tracked in MLflow. Deployed as FastAPI REST API.</div>
+      <div class="project-tags">
+        <span class="ptag">PyTorch</span>
+        <span class="ptag">ResNet18</span>
+        <span class="ptag">scikit-image</span>
+        <span class="ptag">OpenCV</span>
+        <span class="ptag">MLflow</span>
+        <span class="ptag">FastAPI</span>
+      </div>
+      <div class="project-result">→ >90% classification accuracy · regionprops defect characterisation · FastAPI inference API · <a href="https://github.com/madhumitha-murthy/MVTec_Defect_Detection" target="_blank" rel="noopener noreferrer">GitHub →</a></div>
+    </div>
+
+    <div class="project-card">
+      <div class="project-icon" aria-hidden="true">👁️</div>
+      <div class="project-name">Instance Segmentation — Mask R-CNN</div>
+      <div class="project-desc">Implemented Mask R-CNN from pretrained COCO weights for simultaneous bounding-box detection and pixel-level instance segmentation. OpenCV preprocessing: resizing, normalisation, morphological filtering. Extended with scikit-image post-processing: Otsu thresholding, regionprops-based region measurement (area, perimeter, eccentricity, solidity) on each detected mask.</div>
+      <div class="project-tags">
+        <span class="ptag">TensorFlow</span>
+        <span class="ptag">Mask R-CNN</span>
+        <span class="ptag">OpenCV</span>
+        <span class="ptag">scikit-image</span>
+        <span class="ptag">NumPy</span>
+      </div>
+      <div class="project-result">→ Pixel-level instance segmentation · regionprops defect characterisation · COCO pretrained · <a href="https://github.com/madhumitha-murthy/mask-rcnn-object-detection" target="_blank" rel="noopener noreferrer">GitHub →</a></div>
     </div>
 
     <div class="project-card">
@@ -1052,6 +1098,23 @@ footer {
   </div>
   <div class="skills-grid reveal">
     <div class="skill-group">
+      <div class="skill-group-name">Agentic AI</div>
+      <div class="skill-tags">
+        <span class="skill-tag">Agentic Pipelines</span>
+        <span class="skill-tag">AI Agents</span>
+        <span class="skill-tag">Generative AI</span>
+        <span class="skill-tag">RAG</span>
+        <span class="skill-tag">ChromaDB</span>
+        <span class="skill-tag">FAISS</span>
+        <span class="skill-tag">Vector Database</span>
+        <span class="skill-tag">Sentence Transformers</span>
+        <span class="skill-tag">RAGAS</span>
+        <span class="skill-tag">Vector Embeddings</span>
+        <span class="skill-tag">Retrieval Evaluation</span>
+        <span class="skill-tag">Prompt Engineering</span>
+      </div>
+    </div>
+    <div class="skill-group">
       <div class="skill-group-name">ML / Deep Learning</div>
       <div class="skill-tags">
         <span class="skill-tag">PyTorch</span>
@@ -1068,11 +1131,7 @@ footer {
       <div class="skill-tags">
         <span class="skill-tag">Transformer Fine-Tuning</span>
         <span class="skill-tag">LoRA / PEFT</span>
-        <span class="skill-tag">Prompt Engineering</span>
         <span class="skill-tag">Multilingual NLP</span>
-        <span class="skill-tag">RAG</span>
-        <span class="skill-tag">FAISS</span>
-        <span class="skill-tag">Vector Embeddings</span>
         <span class="skill-tag">XLM-RoBERTa</span>
         <span class="skill-tag">mBERT</span>
       </div>
@@ -1081,13 +1140,14 @@ footer {
       <div class="skill-group-name">MLOps / Deploy</div>
       <div class="skill-tags">
         <span class="skill-tag">FastAPI</span>
-        <span class="skill-tag">REST API</span>
         <span class="skill-tag">Docker</span>
+        <span class="skill-tag">Kubernetes</span>
+        <span class="skill-tag">GitHub Actions</span>
         <span class="skill-tag">CI/CD</span>
         <span class="skill-tag">MLflow</span>
+        <span class="skill-tag">APScheduler</span>
         <span class="skill-tag">LangChain</span>
         <span class="skill-tag">A/B Testing</span>
-        <span class="skill-tag">Experiment Tracking</span>
         <span class="skill-tag">Git</span>
         <span class="skill-tag">HuggingFace Spaces</span>
         <span class="skill-tag">AWS (EC2, S3)</span>
@@ -1146,7 +1206,7 @@ footer {
     <div class="exp-item">
       <div class="exp-header">
         <div class="exp-role">Research Attachment</div>
-        <div class="exp-date">Oct 2024 – Dec 2026</div>
+        <div class="exp-date">Oct 2024 – Dec 2025</div>
       </div>
       <div class="exp-org">Institute for Infocomm Research (I²R), A*STAR · Singapore</div>
       <ul class="exp-bullets">
