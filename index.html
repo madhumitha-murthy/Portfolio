@@ -857,14 +857,14 @@ footer {
   <div class="hero-inner">
     <img src="profile.png" alt="Madhumitha Murthy" class="hero-photo"/>
   <div class="hero-content">
-    <div class="hero-tag">Available for full-time roles · Singapore</div>
+    <div class="hero-tag">Available for full-time roles from July 2026 · Singapore</div>
     <h1 class="hero-name">
       Madhumitha<br/>
       <span>Murthy</span>
     </h1>
     <p class="hero-subtitle">AI Engineer · Agentic AI · LLMs · NLP · Production ML</p>
     <p class="hero-desc">
-      I build end-to-end AI systems — agentic pipelines, RAG, fine-tuned LLMs, anomaly detection, and 5G sensing simulations. Production-ready with FastAPI, Docker, Kubernetes, and GitHub Actions CI/CD. 5 peer-reviewed publications. MSc at NTU Singapore, graduating June 2026.
+      I build end-to-end AI systems — agentic pipelines, RAG, fine-tuned LLMs, anomaly detection, full-stack fintech with LLM explainability, and 5G sensing simulations. Production-ready with FastAPI, Docker, Kubernetes, and GitHub Actions CI/CD. 5 peer-reviewed publications. MSc at NTU Singapore, graduating June 2026.
     </p>
     <div class="hero-stats">
       <div class="stat">
@@ -904,6 +904,24 @@ footer {
     <h2 class="section-title">Projects <em>&amp; Systems</em></h2>
   </div>
   <div class="projects-grid reveal">
+
+    <div class="project-card project-card--featured">
+      <div class="project-featured-badge">Full-Stack AI</div>
+      <div class="project-icon" aria-hidden="true">💳</div>
+      <div class="project-name">Fintech Payment Risk Dashboard</div>
+      <div class="project-desc">Full-stack fintech application with 4 Spring Boot microservices (User, Transaction, Risk, Intelligence) and a React dashboard; services communicate via REST, persisted to MongoDB, fully containerised with Docker Compose. Hybrid ML Risk Service bridges Java to a Python LSTM Autoencoder anomaly detection API: weighted scoring (rule-based 40% + ML 60%), auto-flags HIGH-risk transactions. GenAI Intelligence Service uses Groq API (Llama 3.1) for plain-English transaction explainability and NL → structured filter query parsing.</div>
+      <div class="project-tags">
+        <span class="ptag">Java Spring Boot</span>
+        <span class="ptag">React</span>
+        <span class="ptag">MongoDB</span>
+        <span class="ptag">Python FastAPI</span>
+        <span class="ptag">LSTM Autoencoder</span>
+        <span class="ptag">Groq LLM</span>
+        <span class="ptag">Docker</span>
+        <span class="ptag">GitHub Actions</span>
+      </div>
+      <div class="project-result">→ 4 microservices · hybrid ML+rule risk scoring · LLM explainability · CI/CD multi-stage Docker build · <a href="https://github.com/madhumitha-murthy/payment-risk-dashboard" target="_blank" rel="noopener noreferrer">GitHub →</a></div>
+    </div>
 
     <div class="project-card project-card--featured">
       <div class="project-featured-badge">Agentic AI</div>
@@ -960,16 +978,18 @@ footer {
       <div class="project-featured-badge">Production ML</div>
       <div class="project-icon" aria-hidden="true">📈</div>
       <div class="project-name">Time-Series Anomaly Detection Pipeline</div>
-      <div class="project-desc">Anomaly detection on NASA SMAP satellite sensor data (54 channels, 562 anomaly sequences) — LSTM Autoencoder vs Isolation Forest baseline. Pandas + NumPy for preprocessing and windowing. Both models tracked in MLflow for A/B comparison. FastAPI REST API accepts a multivariate time-series window and returns anomaly score and binary flag; containerised with Docker.</div>
+      <div class="project-desc">Anomaly detection on NASA SMAP satellite sensor data (54 channels, 562 anomaly sequences) — LSTM Autoencoder achieved F1 = 0.737, AUC-ROC = 0.857, FAR = 0.7%. Anomaly segment inspection formulated as a fractional knapsack linear programme (SciPy linprog / HiGHS); LP captured +17.6% more anomaly signal than naive greedy on a 10% budget. SimPy discrete event simulation of downstream inspection workflow: LP-prioritised vs greedy schedules — LP reduced makespan by 24% and improved machine utilisation from 50% to 76%. KS-test drift monitor flags distribution shift at p &lt; 0.05; /drift/status endpoint for retraining triggers. 150-test suite with GitHub Actions CI/CD.</div>
       <div class="project-tags">
         <span class="ptag">LSTM Autoencoder</span>
         <span class="ptag">PyTorch</span>
+        <span class="ptag">SciPy linprog</span>
+        <span class="ptag">SimPy</span>
         <span class="ptag">scikit-learn</span>
         <span class="ptag">FastAPI</span>
         <span class="ptag">Docker</span>
         <span class="ptag">MLflow</span>
       </div>
-      <div class="project-result">→ LSTM F1 = 0.73 vs Isolation Forest F1 = 0.55 · 33% F1 improvement · ~12ms inference latency · <a href="https://github.com/madhumitha-murthy/timeseries-anomaly-detection" target="_blank" rel="noopener noreferrer">GitHub →</a></div>
+      <div class="project-result">→ F1 = 0.737 · AUC-ROC = 0.857 · LP +17.6% signal vs greedy · SimPy 24% makespan reduction · ~12ms inference · <a href="https://github.com/madhumitha-murthy/timeseries-anomaly-detection" target="_blank" rel="noopener noreferrer">GitHub →</a></div>
     </div>
 
     <div class="project-card">
@@ -1012,7 +1032,7 @@ footer {
         <span class="ptag">Blender</span>
         <span class="ptag">5G NR</span>
       </div>
-      <div class="project-result">→ First-authored IEEE ISCAS 2025 · Co-authored Nature npj Wireless Tech · <a href="https://github.com/madhumitha-murthy/ISAC-Intelligent-Transportation-" target="_blank" rel="noopener noreferrer">GitHub →</a></div>
+      <div class="project-result">→ First-authored IEEE ISCAS 2026 · Co-authored Nature npj Wireless Tech · <a href="https://github.com/madhumitha-murthy/ISAC-Intelligent-Transportation-" target="_blank" rel="noopener noreferrer">GitHub →</a></div>
     </div>
 
     <div class="project-card">
@@ -1132,6 +1152,7 @@ footer {
         <span class="skill-tag">Transformer Fine-Tuning</span>
         <span class="skill-tag">LoRA / PEFT</span>
         <span class="skill-tag">Multilingual NLP</span>
+        <span class="skill-tag">LLM Guardrails</span>
         <span class="skill-tag">XLM-RoBERTa</span>
         <span class="skill-tag">mBERT</span>
       </div>
@@ -1140,11 +1161,17 @@ footer {
       <div class="skill-group-name">MLOps / Deploy</div>
       <div class="skill-tags">
         <span class="skill-tag">FastAPI</span>
+        <span class="skill-tag">REST API</span>
         <span class="skill-tag">Docker</span>
         <span class="skill-tag">Kubernetes</span>
         <span class="skill-tag">GitHub Actions</span>
         <span class="skill-tag">CI/CD</span>
         <span class="skill-tag">MLflow</span>
+        <span class="skill-tag">Model Versioning</span>
+        <span class="skill-tag">Drift Detection</span>
+        <span class="skill-tag">Model Monitoring</span>
+        <span class="skill-tag">Retraining Automation</span>
+        <span class="skill-tag">Experiment Tracking</span>
         <span class="skill-tag">APScheduler</span>
         <span class="skill-tag">LangChain</span>
         <span class="skill-tag">A/B Testing</span>
@@ -1159,6 +1186,19 @@ footer {
         <span class="skill-tag">NumPy</span>
         <span class="skill-tag">Pandas</span>
         <span class="skill-tag">SciPy</span>
+        <span class="skill-tag">Matplotlib</span>
+      </div>
+    </div>
+    <div class="skill-group">
+      <div class="skill-group-name">Optimisation &amp; Simulation</div>
+      <div class="skill-tags">
+        <span class="skill-tag">Linear Programming (LP)</span>
+        <span class="skill-tag">Fractional Knapsack</span>
+        <span class="skill-tag">Constrained Optimisation</span>
+        <span class="skill-tag">SciPy linprog (HiGHS)</span>
+        <span class="skill-tag">Genetic Algorithms</span>
+        <span class="skill-tag">Discrete Event Simulation (SimPy)</span>
+        <span class="skill-tag">MTTF/MTTR Modelling</span>
       </div>
     </div>
     <div class="skill-group">
@@ -1215,7 +1255,7 @@ footer {
         <li>Designed OFDM radar algorithm with Static Clutter Cancellation (SCC) at 59 GHz / 100 MHz bandwidth, suppressing static reflections to isolate moving vehicle targets with distinct Doppler signatures</li>
         <li>Developed Doppler-based trajectory prediction algorithm achieving close vehicle tracking at update intervals as short as 0.333s, enabling proactive beam alignment in high-mobility scenarios</li>
         <li>Implemented sensing-aided beamforming using predicted vehicle positions to update beamforming weights in real time, achieving BER comparable to perfect-DOA benchmarks at lower computational cost</li>
-        <li>First-authored IEEE ISCAS 2025; co-authored npj Wireless Technology (Nature Portfolio)</li>
+        <li>First-authored IEEE ISCAS 2026; co-authored npj Wireless Technology (Nature Portfolio)</li>
       </ul>
     </div>
 
@@ -1271,7 +1311,7 @@ footer {
     <div class="pub-card">
       <div class="pub-num">01</div>
       <div class="pub-body">
-        <div class="pub-venue">IEEE ISCAS · 2025</div>
+        <div class="pub-venue">IEEE ISCAS · 2026</div>
         <div class="pub-title">ISAC for Intelligent Transportation: Ray-Tracing, Clutter Cancellation, and Sensing-Aided Beamforming</div>
         <div class="pub-desc">5G-based Integrated Sensing and Communication for intelligent vehicle systems using ray-tracing simulation.</div>
       </div>
@@ -1292,7 +1332,7 @@ footer {
       <div class="pub-num">03</div>
       <div class="pub-body">
         <div class="pub-venue">DravidianLangTech Workshop · EACL 2024</div>
-        <div class="pub-title"><a href="https://aclanthology.org/2024.dravidianlangtech-1.25" target="_blank" rel="noopener noreferrer" style="color:inherit;text-decoration:none;">Fake News Detection Using Deep Learning Models in Dravidian Languages</a></div>
+        <div class="pub-title"><a href="https://aclanthology.org/2024.dravidianlangtech-1.33/" target="_blank" rel="noopener noreferrer" style="color:inherit;text-decoration:none;">Fake News Detection Using Deep Learning Models in Dravidian Languages</a></div>
         <div class="pub-desc">Fine-tuned XLM-RoBERTa, mBERT, and ALBERT for multilingual misinformation detection. Macro-F1: 0.84 · 3rd place globally.</div>
       </div>
       <span class="pub-badge badge-published">Published</span>
@@ -1423,7 +1463,7 @@ footer {
 </div>
 
 <footer>
-  <p>Madhumitha Murthy · Machine Learning Engineer · Singapore · 2026</p>
+  <p>Madhumitha Murthy · AI Engineer · Singapore · 2026</p>
 </footer>
 
 <script>
